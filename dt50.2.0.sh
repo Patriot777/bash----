@@ -2,6 +2,8 @@
 # Створення константи на флеш память.
 FLASH="MyFiles"    #<---Назва флешки.
 user=$(whoami)     #<---Команда дізнається імя поточного користувача
+while true
+do
 if [ -d /media/$user/$FLASH ]
 then
 echo "...flash connected..."
@@ -20,3 +22,5 @@ echo "...flash connected..."
 else
 echo "...FLASH NOT FOUND..."
 fi
+sleep 350
+done
