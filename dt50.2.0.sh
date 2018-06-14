@@ -9,18 +9,20 @@ then
 echo "...flash connected..."
 	if [ -d /media/$user/$FLASH/Documents ]
 	then
-		echo "...copy file flash --> PC..."
-		cp $1 /media/$user/$FLASH/Documents/*.* /home/$user/Документи/USB/
-		echo "...copy complete..."
-	else
+		echo -e '\E[1;32mВиконується копіювання'
+		echo -e '\E[1;31m'
+		cp -iv /media/$user/$FLASH/Documents/*.* /home/$user/Документи/USB/ 
+		echo -e '\E[1;33m'
+	
+else
 		echo "...create folder Documents..."
 		mkdir /media/$user/$FLASH/Documents
 		echo "... copy file PC --> flash..."
 		cp -v /home/$user/Документи/USB/*.* /media/$user/$FLASH/Documents/
 		echo "...created and copy complete..."
-	fi		 
+	fi 
 else
 echo "...FLASH NOT FOUND..."
 fi
-sleep 350
+sleep 5
 done
